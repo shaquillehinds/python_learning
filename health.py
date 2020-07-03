@@ -12,8 +12,8 @@ class Person(object):
 
     def potion(self, difficulty):
         min_heal = int(self.missing_health / 2)
-        random_potion = random.randint(0, min_heal)
-        self.health = int(self.health + random_potion + min_heal)
+        random_potion = random.randint(min_heal, self.missing_health)
+        self.health = int(self.health + random_potion)
         self.missing_health = 100 - self.health
 
     def damage(self, difficulty):
@@ -23,10 +23,12 @@ class Person(object):
 
 
 me = Person('Shaquille', 25)
-
-me.potion(difficulty)
-print(me.health)
-me.damage(difficulty)
-print(me.health, me.missing_health)
-me.potion(difficulty)
-print(me.health, me.missing_health)
+reached_max = 0
+while(me.health > 0):
+    me.damage(difficulty)
+    me.damage(difficulty)
+    me.potion(difficulty)
+    if(me.health == 100):
+        reached_max += 1
+print("Reached Max "+str(reached_max)+" times")
+print("I'm Dead. Current health = "+str(me.health))
