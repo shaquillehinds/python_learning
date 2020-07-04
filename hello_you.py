@@ -1,11 +1,11 @@
 # Ask user for their name
-name = input("Salut, comment t'appelle?")
+name = input("Salut, comment t'appelle?").strip()
 # Ask user for their age
-age = input("Quel age avez-vous?")
+age = input("Quel age avez-vous?").strip()
 # Ask user for their city
-city = input("Où tu habites?")
+city = input("Où tu habites?").strip()
 # Ask user for their hobbies
-hobbies = input("Qu'est-ce que tu aimes faire?")
+hobbies = input("Qu'est-ce que tu aimes faire?").strip()
 # Create output text
 output = "Your name is " + name + " and you are " + age + \
     " years old. You live in " + city + " and you like to " + hobbies
